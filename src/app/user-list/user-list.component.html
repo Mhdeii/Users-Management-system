@@ -1,0 +1,14 @@
+<div *ngIf="users.length > 0">
+    <div class="user-card" *ngFor="let user of users" (click)="goToUserDetails(user.id)">
+      <img [src]="user.avatar" alt="User Avatar">
+      <div class="user-details">
+        <p>{{ user.first_name }} {{ user.last_name }}</p>
+        <p>ID: {{ user.id }}</p>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="users.length === 0">
+    <p>Loading...</p>
+  </div>
+  

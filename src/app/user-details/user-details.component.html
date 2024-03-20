@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span>User Details</span>
+</mat-toolbar>
+<div *ngIf="userId">
+  <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+  <p>ID: {{ user.id }}</p>
+</div>

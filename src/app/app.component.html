@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <span></span>
+  <input matInput placeholder="Search by ID" [(ngModel)]="searchQuery" (input)="searchUser()">
+</mat-toolbar>
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<div *ngIf="!loading">
+  <div class="user-list">
+    <mat-card *ngFor="let user of users" (click)="navigateToUserDetails(user.id)">
+      <img mat-card-image [src]="user.avatar">
+      <mat-card-content>
+        <p>{{ user.first_name }} {{ user.last_name }}</p>
+        <p>ID: {{ user.id }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <mat-paginator [length]="totalUsers" [pageSize]="pageSize" (page)="getUsers($event)"></mat-paginator>
+</div>
